@@ -5,6 +5,9 @@ Bot farm of SLACK.
 
 Heaven is higher then a could.
 
+[![Code Climate](https://codeclimate.com/github/alfa-jpn/BotHeaven/badges/gpa.svg)](https://codeclimate.com/github/alfa-jpn/BotHeaven)
+[![Build Status](https://travis-ci.org/alfa-jpn/BotHeaven.svg?branch=master)](https://travis-ci.org/alfa-jpn/BotHeaven)
+
 ## Install
 This is rails application.
 
