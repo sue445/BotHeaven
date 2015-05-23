@@ -1,0 +1,35 @@
+en:
+  product_name: 'Bot Heaven'
+  activerecord:
+    models:
+      bot:  'Bot'
+      user: 'User'
+    attributes:
+      bot:
+        name:          'Name'
+        channel:       'Channel'
+        user:          'Author'
+        default_icon:  'Default Icon'
+        script:        'Script'
+        current_error: 'Current Error'
+        permission:    'Permission'
+  bots:
+    index:
+      title: 'Bots'
+      numbers_of_bot: '%{numbers}bots(including privetes.)'
+    permissions:
+      private_bot: 'Private Bot'
+      public_bot:  'Public Bot'
+      freedom_bot: 'Freedom Bot'
+  commons:
+    sentences:
+      create: 'Create %{model}'
+      edit:   'Edit %{model}'
+    words:
+      action:  'Action'
+      back:    'Back'
+      edit:    'Edit'
+      destroy: 'Destroy'
+      login:   'Login'
+      logout:  'Logout'
+      show:    'Show'

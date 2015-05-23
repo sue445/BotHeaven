@@ -1,0 +1,17 @@
+alarm_001:
+  id:                1
+  name:              'schedule'
+  callback_function: 'cb'
+  bot_id:            1
+  minutes:           1
+  wake_at:           <%= Time.zone.now %>
+  repeat:            false
+
+bot_002:
+  id:                2
+  name:              'repeat_schedule'
+  callback_function: 'cb'
+  bot_id:            1
+  minutes:           1
+  wake_at:           <%= Time.zone.now %>
+  repeat:            true

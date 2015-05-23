@@ -1,0 +1,40 @@
+.bots
+  - if notice
+    .alert.alert-warning role='alert'
+      = notice
+
+  h1 = @bot.name
+
+  hr
+  p
+    strong = "#{Bot.human_attribute_name(:user)}:"
+    = @bot.user.name
+  p
+    strong = "#{Bot.human_attribute_name(:channel)}:"
+    = @bot.channel
+  p
+    strong = "#{Bot.human_attribute_name(:default_icon)}:"
+    = @bot.default_icon
+  p
+    strong = "#{Bot.human_attribute_name(:permission)}:"
+    = @bot.permission.t
+  p
+    strong = "#{Bot.human_attribute_name(:current_error)}:"
+    = @bot.current_error
+  hr
+
+  .editor.js-editor
+    textarea.js-textarea
+      = @bot.script
+    .toolbar.js-toolbar
+      .toolbar-item.pull-right.js-switcher
+        .glyphicon.glyphicon-resize-full
+
+  - if @bot.owner?(@current_user) || @bot.permission == Bots::Permissions::FREEDOM_BOT
+    = link_to t('commons.words.edit'), edit_bot_path(@bot)
+    '|
+  = link_to t('commons.words.back'), bots_path
+
+coffee:
+  $ ->
+    new BotHeaven.Bots.Editor(false)

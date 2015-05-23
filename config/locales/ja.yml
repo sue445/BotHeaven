@@ -1,0 +1,35 @@
+ja:
+  product_name: 'ぼっとてんごく'
+  activerecord:
+    models:
+      bot:  'ボット'
+      user: 'ユーザ'
+    attributes:
+      bot:
+        name:          'ボット名'
+        channel:       'チャンネル'
+        user:          '作者'
+        default_icon:  'デフォルトアイコン'
+        script:        'スクリプト'
+        current_error: '最新のエラー'
+        permission:    '権限'
+  bots:
+    index:
+      title: 'ボット一覧'
+      numbers_of_bot: '%{numbers}件(非公開ボットも含む)'
+    permissions:
+      private_bot: '非公開ボット'
+      public_bot:  '公開ボット'
+      freedom_bot: '改変可能ボット'
+  commons:
+    sentences:
+      create: '%{model}を作成'
+      edit:   '%{model}を編集'
+    words:
+      action:  '操作'
+      back:    '戻る'
+      edit:    '編集'
+      destroy: '削除'
+      login:   'ログイン'
+      logout:  'ログアウト'
+      show:    '閲覧'

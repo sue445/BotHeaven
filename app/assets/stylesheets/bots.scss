@@ -1,0 +1,47 @@
+.bots {
+  margin: 25px 0 0 0;
+
+  .editor {
+    border: solid 1px #101010;
+    margin: 0;
+    padding: 0;
+
+    .CodeMirror {
+      margin: 0;
+      padding: 0;
+      height: auto;
+    }
+
+    .toolbar {
+      background-color: #f7f7f7;
+      height: 24px;
+      .toolbar-item {
+        height: 16px;
+        font-size: 16px;
+        color: #101010;
+        margin: 4px 10px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .actions {
+    padding: 20px 0;
+  }
+
+  table {
+    width: 100%;
+    font-size: 15px;
+    td {
+      padding: 10px 0;
+      border-bottom: solid #d3d3d3 1px;
+      a {
+        width: 100px;
+        margin: 0 10px 0 0;
+      }
+    }
+    .bot-actions {
+      width: 350px;
+    }
+  }
+}

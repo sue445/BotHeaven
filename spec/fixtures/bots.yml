@@ -1,0 +1,19 @@
+bot_001:
+  id:           1
+  name:         'freedom_bot'
+  channel:      'random'
+  channel_id:   'test'
+  default_icon: 'tikuwa'
+  permission:   2
+  script:       ''
+  user_id:      1
+
+bot_002:
+  id:           2
+  name:         'private_bot'
+  channel:      'random'
+  channel_id:   'test'
+  default_icon: 'tikuwa'
+  permission:   0
+  script:       ''
+  user_id:      2

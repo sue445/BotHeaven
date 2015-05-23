@@ -1,0 +1,33 @@
+= form_for @bot do |f|
+  - if @bot.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@bot.errors.count, "error")} prohibited this bot from being saved:"
+      ul
+        - @bot.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :channel
+    = f.text_field :channel
+  .field
+    = f.label :default_icon
+    = f.text_field :default_icon
+  .field
+    = f.label :permission
+    = f.select :permission, Bots::Permissions.collection, selected: @bot.permission.to_i
+  .field
+    = f.label :script
+    .editor.js-editor
+      = f.text_area :script, class: 'js-textarea'
+      .toolbar.js-toolbar
+        .toolbar-item.pull-right.js-switcher
+          .glyphicon.glyphicon-resize-full
+  .actions
+    = f.submit class: 'btn btn-primary'
+
+coffee:
+  $ ->
+    new BotHeaven.Bots.Editor(true)

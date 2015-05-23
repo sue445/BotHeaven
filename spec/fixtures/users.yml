@@ -1,0 +1,11 @@
+user_001:
+  id:        1
+  uid:       '0001'
+  name:      'hoge'
+  image_url: 'image_url'
+
+user_002:
+  id:        2
+  uid:       '0002'
+  name:      'fuga'
+  image_url: 'image_url'

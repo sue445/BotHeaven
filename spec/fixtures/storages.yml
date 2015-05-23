@@ -1,0 +1,9 @@
+storage_001:
+  id:           1
+  content: '{}'
+  bot_id:  1
+
+storage_002:
+  id:           2
+  content: '{}'
+  bot_id:  2
