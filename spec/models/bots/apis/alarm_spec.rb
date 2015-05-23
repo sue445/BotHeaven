@@ -4,6 +4,7 @@ RSpec.describe Bots::Apis::Alarm do
   fixtures :bots
   fixtures :users
   fixtures :alarms
+  fixtures :storages
 
   let :bot do
     Bot.find(1).tap do |bot|

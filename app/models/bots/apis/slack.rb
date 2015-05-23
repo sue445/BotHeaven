@@ -19,7 +19,7 @@ module Bots::Apis
     # @param [String] icon_emoji emoji icon.
     # @return [Boolean] true if success.
     def talk_with_icon(message, icon_emoji)
-      JobDaemon.enqueue(JobDaemons::SlackTalkJob.new(@bot.channel_id, @bot.name, icon_emoji.to_s, message.to_s))
+      JobDaemon.enqueue(JobDaemons::SlackTalkJob.new(@bot.channel_id.to_s, @bot.name.to_s, icon_emoji.to_s, message.to_s))
       true
     rescue
       false
