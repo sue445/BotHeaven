@@ -10,6 +10,9 @@ Heaven is higher then a could.
 
 ## Install
 This is rails application.
+- System Required
+  - Ruby (>2.0.0)
+  - Bundler
 
 ### 1. Deploy bot heaven.
 ### 2. Set Environments.
@@ -34,14 +37,19 @@ RAILS_SERVE_STATIC_FILES=1 # If you use heroku.
 - BotName and BotToken
   - https://slack.com/services/new/bot
 
-### 4. Install Gems.
+### 3. Install Gems.
 ```shell
 bundle install --path vendor/bundle
 ```
 
+### 4. Migrate Database.
+```shell
+bundle exec rake db:migrate RAILS_ENV=production
+```
+
 ### 5. Run
 ```shell
-bundle exec rails s
+bundle exec rails s -e production
 ```
 
 ## Bot API
@@ -168,6 +176,12 @@ api.storage['name']
 api.storage.keys()
 ```
 
+> Clear all.
+
+```javascript
+// Example
+api.storage.clear()
+```
 
 ## Licence
 This project is released under the MIT license.
