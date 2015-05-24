@@ -52,7 +52,7 @@ gem 'dotenv-rails'
 group :production do
   gem 'pg'
   gem 'sqlite3'
-  gem 'rails_12factor'
+  # gem 'rails_12factor'
 end
 
 group :development, :test do
