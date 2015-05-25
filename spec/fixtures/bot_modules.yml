@@ -3,7 +3,7 @@ bot_module_001:
   name:         'oreo'
   description:  'oreo'
   permission:   <%= BotModules::Permissions::PUBLIC_MODULE.to_i %>
-  script:       'function oreo(){ return "oreo" }'
+  script:       'function oreo(){ return "oreo!!" }'
   user_id:      1
 
 bot_module_002:

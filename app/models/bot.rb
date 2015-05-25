@@ -35,7 +35,7 @@ class Bot < ActiveRecord::Base
   def execute_function(function, arguments: [])
     cxt = V8::Context.new(timeout: SCRIPT_TIMEOUT)
     cxt['api'] = Bots::API.new(self)
-    cxt.eval self.script
+    cxt.eval modules_imported_script
     cxt['bot_function_params'] = arguments
     cxt.eval("#{function}.apply(this, bot_function_params)").to_s
   rescue => e
@@ -58,7 +58,7 @@ class Bot < ActiveRecord::Base
     end
   end
 
-  # Check Owner.
+  # Check if owner.
   # @param [User] user
   # @return [Boolean] true if user is owner.
   def owner?(user)
@@ -78,6 +78,15 @@ class Bot < ActiveRecord::Base
   end
 
   private
+  # Get modules imported script.
+  # @return [String] Modules imported script
+  def modules_imported_script
+    Array.new.tap { |scripts|
+      scripts.concat bot_modules.to_a.select{|bot_module| bot_module.usable?(user)}.map(&:script)
+      scripts.push self.script
+    }.join('')
+  end
+
   # Set channel id.
   def set_channel_id
     self.channel_id = SlackUtils::SingletonClient.instance.find_channel_id(channel)

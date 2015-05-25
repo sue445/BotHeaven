@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Bot, type: :model do
   fixtures :bots
+  fixtures :bot_modules
+  fixtures :bot_bot_modules
   fixtures :users
 
   let :bot do
@@ -107,6 +109,16 @@ RSpec.describe Bot, type: :model do
 
     it 'Return script eval.' do
       expect(subject).to eq("#{name}-#{text}")
+    end
+
+    context 'when call module script' do
+      let :script do
+        'function onTalk(name, text) { return oreo(); }'
+      end
+
+      it 'Return module call result' do
+        expect(subject).to eq('oreo!!')
+      end
     end
 
     context 'when call api in script' do
