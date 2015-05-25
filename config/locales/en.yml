@@ -2,9 +2,10 @@ en:
   product_name: 'Bot Heaven'
   activerecord:
     models:
-      bot:     'Bot'
-      user:    'User'
-      storage: 'Storage'
+      bot:        'Bot'
+      bot_module: 'Module'
+      user:       'User'
+      storage:    'Storage'
     attributes:
       bot:
         name:          'Name'
@@ -14,6 +15,12 @@ en:
         script:        'Script'
         current_error: 'Current Error'
         permission:    'Permission'
+    bot_module:
+      name:          'Name'
+      description:   'Description'
+      user:          'Author'
+      script:        'Script'
+      permission:    'Permission'
   bots:
     index:
       title: 'Bots'
@@ -22,6 +29,12 @@ en:
       private_bot: 'Private Bot'
       public_bot:  'Public Bot'
       freedom_bot: 'Freedom Bot'
+  bot_modules:
+    index:
+      title: 'Modules'
+    permissions:
+      private_module: 'Private Module'
+      public_module:  'Publid Module'
   commons:
     sentences:
       create: 'Create %{model}'

@@ -4,17 +4,15 @@ class BotsController < ApplicationController
   before_action :check_permission!, except: [:index, :new, :create]
 
   # GET /bots
-  # GET /bots.json
   def index
     @bots = Bot.all
   end
 
   # GET /bots/1
-  # GET /bots/1.json
   def show
   end
 
-  # GET /bots/1/storage.json
+  # GET /bots/1/storage
   def show_storage
     respond_to do |format|
       format.html { render :show_storage }
@@ -42,7 +40,6 @@ EOS
   end
 
   # POST /bots
-  # POST /bots.json
   def create
     @bot = Bot.new(bot_params).tap do |bot|
       bot.user = current_user
@@ -53,37 +50,30 @@ EOS
         call_initializer
         invite_bot
         format.html { redirect_to @bot, notice: 'Bot was successfully created.' }
-        format.json { render :show, status: :created, location: @bot }
       else
         format.html { render :new }
-        format.json { render json: @bot.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PATCH/PUT /bots/1
-  # PATCH/PUT /bots/1.json
   def update
     respond_to do |format|
       if @bot.update(bot_params)
         call_initializer
         invite_bot
         format.html { redirect_to @bot, notice: 'Bot was successfully updated.' }
-        format.json { render :show, status: :ok, location: @bot }
       else
         format.html { render :edit }
-        format.json { render json: @bot.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /bots/1
-  # DELETE /bots/1.json
   def destroy
     @bot.destroy
     respond_to do |format|
       format.html { redirect_to bots_url, notice: 'Bot was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

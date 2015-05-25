@@ -1,0 +1,8 @@
+.bots
+  h1 = t('commons.sentences.edit', model: Bot.model_name.human)
+
+  = render 'form'
+
+  = link_to t('commons.words.show'), @bot
+  '|
+  = link_to t('commons.words.back'), bot_modules_path

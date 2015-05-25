@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150519103113) do
+ActiveRecord::Schema.define(version: 20150525143529) do
 
   create_table "alarms", force: :cascade do |t|
     t.string   "name",              limit: 32
@@ -27,6 +27,18 @@ ActiveRecord::Schema.define(version: 20150519103113) do
   add_index "alarms", ["bot_id", "name"], name: "index_alarms_on_bot_id_and_name", unique: true
   add_index "alarms", ["bot_id"], name: "index_alarms_on_bot_id"
   add_index "alarms", ["wake_at"], name: "index_alarms_on_wake_at"
+
+  create_table "bot_modules", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name",        limit: 32
+    t.string   "description", limit: 128
+    t.text     "script"
+    t.integer  "permission"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "bot_modules", ["user_id"], name: "index_bot_modules_on_user_id"
 
   create_table "bots", force: :cascade do |t|
     t.string   "name",          limit: 32

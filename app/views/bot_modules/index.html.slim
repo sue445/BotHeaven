@@ -1,0 +1,31 @@
+.bots
+  h1
+    = t('.title')
+
+  .actions
+    = link_to t('commons.sentences.create', model: BotModule.model_name.human), new_bot_module_path, class: 'btn btn-primary'
+
+  table
+    thead
+      tr
+        th = BotModule.human_attribute_name(:name)
+        th = BotModule.human_attribute_name(:description)
+        th = BotModule.human_attribute_name(:permission)
+        th = BotModule.human_attribute_name(:user)
+        th = t('commons.words.action')
+
+    tbody
+      - @bot_modules.each do |bot_module|
+        - next if bot_module.permission == BotModules::Permissions::PRIVATE_MODULE && !bot_module.owner?(@current_user)
+        - editable = bot_module.owner?(@current_user)
+        - deletable = bot_module.owner?(@current_user)
+        tr
+          td = bot_module.name
+          td = bot_module.description
+          td = bot_module.permission.t
+          td = bot_module.user.name
+          td.bot-actions
+            = link_to t('commons.words.show'), bot_module, class: 'btn btn-default btn-xs'
+            = link_to t('commons.words.edit'), edit_bot_module_path(bot_module), class: "btn btn-default btn-xs #{(editable) ? '': 'disabled'}"
+            = link_to t('commons.words.destroy'), bot_module, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-danger btn-xs #{(deletable) ? '': 'disabled'}"
+  br

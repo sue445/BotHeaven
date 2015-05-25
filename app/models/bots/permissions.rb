@@ -1,5 +1,5 @@
 module Bots
-  # API class of Bot.
+  # Permissions of Bot.
   class Permissions < Inum::Base
     define :PRIVATE_BOT, 0
     define :PUBLIC_BOT,  1

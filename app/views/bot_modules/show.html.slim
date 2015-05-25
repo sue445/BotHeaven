@@ -1,0 +1,34 @@
+.bots
+  - if notice
+    .alert.alert-warning role='alert'
+      = notice
+
+  h1 = @bot_module.name
+
+  hr
+  p
+    strong = "#{BotModule.human_attribute_name(:user)}:"
+    = @bot_module.user.name
+  p
+    strong = "#{BotModule.human_attribute_name(:description)}:"
+    = @bot_module.description
+  p
+    strong = "#{BotModule.human_attribute_name(:permission)}:"
+    = @bot_module.permission.t
+  hr
+
+  .editor.js-editor
+    textarea.js-textarea
+      = @bot_module.script
+    .toolbar.js-toolbar
+      .toolbar-item.pull-right.js-switcher
+        .glyphicon.glyphicon-resize-full
+
+  - if @bot_module.owner?(@current_user)
+    = link_to t('commons.words.edit'), edit_bot_module_path(@bot_module)
+    '|
+  = link_to t('commons.words.back'), bot_modules_path
+
+coffee:
+  $ ->
+    new BotHeaven.Bots.Editor(false)

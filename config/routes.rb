@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :bot_modules
+
   get '/auth/:provider/callback', to: 'sessions#create'
   resource :sessions, only: [:new, :destroy]
 end

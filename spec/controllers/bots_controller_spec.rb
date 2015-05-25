@@ -208,6 +208,16 @@ RSpec.describe BotsController, type: :controller do
         expect(SlackUtils::SingletonClient.instance).to receive(:invite_channel)
         subject
       end
+
+      context 'When not freedom bot' do
+        let :bot do
+          Bot.find(2)
+        end
+
+        it 'Redirect to root' do
+          expect(subject).to redirect_to(root_path)
+        end
+      end
     end
 
     context "with invalid params" do
@@ -237,6 +247,16 @@ RSpec.describe BotsController, type: :controller do
       bot = Bot.create! valid_attributes
       delete :destroy, {:id => bot.to_param}
       expect(response).to redirect_to(bots_url)
+    end
+
+    context 'When not owner' do
+      let :bot do
+        Bot.find(2)
+      end
+
+      it 'Redirect to root' do
+        expect(delete :destroy, {:id => bot.to_param}).to redirect_to(root_path)
+      end
     end
   end
 end

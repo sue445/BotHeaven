@@ -1,0 +1,22 @@
+# Module of Bot.
+# @attr [String]             name        Name of Module.
+# @attr [String]             description Description of Module.
+# @attr [String]             script      Script of Module.
+# @attr [User]               user        Author of Module.
+# @attr [Bots::Permissions]  permission  Permission of Module.
+class BotModule < ActiveRecord::Base
+  belongs_to :user, inverse_of: :bot_modules
+  bind_inum :permission, BotModules::Permissions
+
+  validates :name,        length: {in: 1..32}, presence: true
+  validates :description, length: {maximum: 128}
+  validates :script,      length: {in: 1..64.kilobytes}, presence: true
+  validates :user,        presence: true
+
+  # Check Owner.
+  # @param [User] user
+  # @return [Boolean] true if user is owner.
+  def owner?(user)
+    self.user == user
+  end
+end
