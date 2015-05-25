@@ -81,7 +81,7 @@ RSpec.describe BotsController, type: :controller do
       response
     end
 
-    it 'Return 200.' do
+    it 'Render show_storage.' do
       expect(subject).to render_template(:show_storage)
     end
 
