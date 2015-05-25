@@ -6,6 +6,9 @@
 # @attr [Bots::Permissions]  permission  Permission of Module.
 class BotModule < ActiveRecord::Base
   belongs_to :user, inverse_of: :bot_modules
+  has_many :bot_bot_modules, inverse_of: :bot_module
+  has_many :bots, through: :bot_bot_modules
+
   bind_inum :permission, BotModules::Permissions
 
   validates :name,        length: {in: 1..32}, presence: true

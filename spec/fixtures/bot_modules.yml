@@ -1,4 +1,4 @@
-bot_001:
+bot_module_001:
   id:           1
   name:         'oreo'
   description:  'oreo'
@@ -6,7 +6,7 @@ bot_001:
   script:       'function oreo(){ return "oreo" }'
   user_id:      1
 
-bot_002:
+bot_module_002:
   id:           2
   name:         'tikuwa'
   description:  'tikuwa'
@@ -14,7 +14,7 @@ bot_002:
   script:       'function tikuwa(){ return "tikuwa" }'
   user_id:      2
 
-bot_003:
+bot_module_003:
   id:           3
   name:         'oreo'
   description:  'oreo'

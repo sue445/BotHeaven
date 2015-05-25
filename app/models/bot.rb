@@ -17,6 +17,8 @@ class Bot < ActiveRecord::Base
   belongs_to :user,    inverse_of: :bots
   has_one :storage, inverse_of: :bot
   has_many :alarms, inverse_of: :bot
+  has_many :bot_bot_modules, inverse_of: :bot
+  has_many :bot_modules, through: :bot_bot_modules
 
   bind_inum :permission, Bots::Permissions
 
