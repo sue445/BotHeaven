@@ -1,6 +1,6 @@
 class BotsController < ApplicationController
   before_action :authenticated!, except: [:index, :show]
-  before_action :set_bot, only: [:show, :edit, :update, :destroy]
+  before_action :set_bot, only: [:show, :show_storage, :edit, :update, :destroy]
   before_action :check_permission!, except: [:index, :new, :create]
 
   # GET /bots
@@ -12,6 +12,13 @@ class BotsController < ApplicationController
   # GET /bots/1
   # GET /bots/1.json
   def show
+  end
+
+  # GET /bots/1/storage.json
+  def show_storage
+    respond_to do |format|
+      format.html { render :show_storage }
+    end
   end
 
   # GET /bots/new
@@ -101,7 +108,7 @@ EOS
     case action_name
       when 'show'
         redirect_to root_path if @bot.permission == Bots::Permissions::PRIVATE_BOT && !@bot.owner?(current_user)
-      when 'edit','update'
+      when 'edit', 'update', 'show_storage'
         redirect_to root_path if @bot.permission != Bots::Permissions::FREEDOM_BOT && !@bot.owner?(current_user)
       when 'destroy'
         redirect_to root_path unless @bot.owner?(current_user)

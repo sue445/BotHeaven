@@ -2,8 +2,9 @@ en:
   product_name: 'Bot Heaven'
   activerecord:
     models:
-      bot:  'Bot'
-      user: 'User'
+      bot:     'Bot'
+      user:    'User'
+      storage: 'Storage'
     attributes:
       bot:
         name:          'Name'
@@ -30,6 +31,8 @@ en:
       back:    'Back'
       edit:    'Edit'
       destroy: 'Destroy'
+      key:     'Key'
       login:   'Login'
       logout:  'Logout'
       show:    'Show'
+      value:   'Value'

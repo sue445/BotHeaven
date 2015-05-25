@@ -75,6 +75,27 @@ RSpec.describe BotsController, type: :controller do
     end
   end
 
+  describe "GET #show_storage" do
+    subject do
+      get :show_storage, id: bot.to_param
+      response
+    end
+
+    it 'Return 200.' do
+      expect(subject).to render_template(:show_storage)
+    end
+
+    context 'When private bot' do
+      let :bot do
+        Bot.find(2)
+      end
+
+      it 'Redirect to root' do
+        expect(subject).to redirect_to(root_path)
+      end
+    end
+  end
+
   describe "GET #edit" do
     subject do
       get :edit, id: bot.to_param

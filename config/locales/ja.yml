@@ -2,8 +2,9 @@ ja:
   product_name: 'ぼっとてんごく'
   activerecord:
     models:
-      bot:  'ボット'
-      user: 'ユーザ'
+      bot:     'ボット'
+      user:    'ユーザ'
+      storage: 'ストレージ'
     attributes:
       bot:
         name:          'ボット名'
@@ -30,6 +31,8 @@ ja:
       back:    '戻る'
       edit:    '編集'
       destroy: '削除'
+      key:     'キー'
       login:   'ログイン'
       logout:  'ログアウト'
       show:    '閲覧'
+      value:   '値'

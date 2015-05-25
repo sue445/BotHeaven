@@ -21,6 +21,8 @@
   p
     strong = "#{Bot.human_attribute_name(:current_error)}:"
     = @bot.current_error
+  p
+    strong = link_to Storage.model_name.human, storage_bot_path(@bot)
   hr
 
   .editor.js-editor
